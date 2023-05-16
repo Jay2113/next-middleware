@@ -1,7 +1,11 @@
-import { NextPage } from 'next'
+import { NextPage } from "next";
+import { useRouter } from "next/router";
 
 export const RedirectedPage: NextPage = () => {
-  return <h1>Redirected from /about</h1>
-}
+  const router = useRouter();
+  router.prefetch("/redirected");
+  console.log("prefetching page");
+  return <h1>Redirected from /about</h1>;
+};
 
-export default RedirectedPage
+export default RedirectedPage;
